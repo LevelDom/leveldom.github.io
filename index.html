@@ -1,4 +1,6 @@
-
+<?php
+require('UserInfo.php');
+?>
 <html>
 	<head>
 		<title>Homepage</title>
@@ -58,7 +60,7 @@
 
 
 <h1> 
-		Dom's Dungeon
+		<?= UserInfo::get_ip()?>
 </h1>
 
 	<h2>
