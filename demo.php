@@ -45,6 +45,6 @@ h2{font-family: sans-serif,'Helvetica';}
 			<td><?= UserInfo::get_browser();?></td>
 		</tr>
 	</table>
-
+ 
 </body>
 </html>
