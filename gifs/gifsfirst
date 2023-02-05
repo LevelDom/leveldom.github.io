@@ -1,0 +1,9 @@
+<html>
+	<head>
+		<title>Gifs First</title>
+                <link rel="stylesheet" href="main/styles.css">
+
+	</head>
+	<body style="background-color:maroon">
+<div class="main">
+	<img src="pictures/header1.gif" height="300" width="600" alt="Hero image">
