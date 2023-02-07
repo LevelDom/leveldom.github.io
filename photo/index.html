@@ -1,10 +1,41 @@
 <html>
-	<head>
-		<title>Gifs Eight</title>
-<div class="main">		
-                <link rel="stylesheet" href="main/styles.css">
+  <head>
+    <title>Image Gallery</title>
+  </head>
+  <body>
+    <div id="image-container"></div>
 
-	</head>
-	<body style="background-color:maroon">
-<div class="main">
-	<img src="pictures/jpg2pdf.pdf" height="600" width="600" alt="Hero image">
+    <script>
+      // Define the path to the image folder
+      var imageFolder = '/photo/pictures/';
+
+      // Get a reference to the image container element
+      var imageContainer = document.getElementById('image-container');
+
+      // Use the Fetch API to get a list of all image files in the folder
+      fetch(imageFolder)
+        .then(response => response.text())
+        .then(data => {
+          // Extract the file names from the folder listing
+          var fileNames = data.match(/href="[^"]+/g);
+
+          // Filter the file names to only include image files
+          fileNames = fileNames.filter(fileName =>
+            fileName.endsWith('.jpg') ||
+            fileName.endsWith('.jpeg') ||
+            fileName.endsWith('.png') ||
+            fileName.endsWith('.gif')
+          );
+
+          // Create an <img> element for each image file
+          for (var i = 0; i < fileNames.length; i++) {
+            var fileName = fileNames[i].substring(6);
+            var image = document.createElement('img');
+            image.src = imageFolder + fileName;
+            image.alt = fileName;
+            imageContainer.appendChild(image);
+          }
+        });
+    </script>
+  </body>
+</html>
