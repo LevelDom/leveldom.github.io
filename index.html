@@ -1,37 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>My Anime Site</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>~☆ My Anime Desktop ☆~</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="desktop">
 
-  <div class="window">
-    <div class="title-bar">
-      <span class="title">~☆ My Anime Page ☆~</span>
-      <div class="window-controls">
-        <button>−</button>
-        <button>□</button>
-        <button>×</button>
+    <!-- 🎵 Background Music -->
+    <!-- 🎵 Replace the URL below with your own MP3 or MIDI -->
+    <audio id="bg-music" autoplay loop>
+      <source src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Komiku/Its_time_for_adventure/Komiku_-_11_-_Princess_quest.mp3" type="audio/mp3" />
+    </audio>
+
+    <!-- 🔊 Mute Button (bottom-left like system tray) -->
+    <button class="mute-button" onclick="toggleMusic()">🔊</button>
+
+    <!-- 🕒 Clock -->
+    <div id="clock" class="clock"></div>
+
+    <!-- 💻 Main Window -->
+    <div class="window">
+      <div class="title-bar">
+        <span class="title">~☆ My Anime Page ☆~</span>
+        <div class="window-controls">
+          <button class="control">−</button>
+          <button class="control">□</button>
+          <button class="control">×</button>
+        </div>
       </div>
-    </div>
-    <div class="content">
-      <div class="sidebar">
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Gallery</a></li>
-          <li><a href="#">Guestbook</a></li>
-          <li><a href="#">About Me</a></li>
-        </ul>
-      </div>
-      <div class="main">
-        <h1>Welcome to my anime site! ★彡</h1>
-        <p>Feel the nostalgia and enjoy some sparkly goodness~</p>
-        <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" alt="Cute Cat" class="gif">
+
+      <div class="content">
+        <div class="sidebar">
+          <ul>
+            <li><a href="#">🏠 Home</a></li>
+            <li><a href="#">🌸 Gallery</a></li>
+            <li><a href="#">💬 Guestbook</a></li>
+            <li><a href="#">🧚 About Me</a></li>
+          </ul>
+        </div>
+
+        <div class="main">
+          <marquee behavior="scroll" direction="left" scrollamount="5">✨ Welcome to my sparkly retro anime site! ✨</marquee>
+          <h1>Hi! I'm Usagi~</h1>
+          <p>This site is best viewed in Internet Explorer 6 💻</p>
+          <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" alt="Cute Cat" class="gif" />
+          <p><blink>Don't forget to sign my guestbook!!</blink></p>
+        </div>
       </div>
     </div>
   </div>
 
+  <!-- 🔊 Music Toggle + 🕒 Clock Script -->
+  <script>
+    const music = document.getElementById("bg-music");
+    const muteBtn = document.querySelector(".mute-button");
+
+    function toggleMusic() {
+      if (music.paused) {
+        music.play();
+        muteBtn.textContent = "🔊";
+      } else {
+        music.pause();
+        muteBtn.textContent = "🔇";
+      }
+    }
+
+    // ⏰ Digital Clock
+    function updateClock() {
+      const now = new Date();
+      const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      document.getElementById("clock").textContent = timeString;
+    }
+    setInterval(updateClock, 1000);
+    updateClock(); // run once immediately
+  </script>
 </body>
 </html>
