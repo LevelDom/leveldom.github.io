@@ -1,0 +1,85 @@
+/* Background and body setup */
+body {
+  background: url('https://www.transparenttextures.com/patterns/stardust.png');
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+/* Simulated window frame */
+.window {
+  width: 800px;
+  margin: 0 auto;
+  border: 1px solid #aaa;
+  box-shadow: 4px 4px 10px rgba(0,0,0,0.2);
+  background: #eaf4ff;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+/* Title bar (Windows 7 style) */
+.title-bar {
+  background: linear-gradient(to bottom, #d0eaff, #a8cfff);
+  padding: 5px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #003366;
+  font-weight: bold;
+  border-bottom: 1px solid #6aa2d3;
+}
+
+.window-controls button {
+  margin-left: 4px;
+  background: linear-gradient(to bottom, #f0f0f0, #d0d0d0);
+  border: 1px solid #999;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* Content area */
+.content {
+  display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 180px;
+  background: #fff;
+  border-right: 1px solid #ccc;
+  padding: 10px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 8px;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #0077cc;
+  font-weight: bold;
+}
+
+/* Main content */
+.main {
+  flex: 1;
+  padding: 20px;
+}
+
+.main h1 {
+  font-size: 24px;
+  color: #cc3399;
+  text-shadow: 1px 1px 0 #fff;
+}
+
+.gif {
+  margin-top: 10px;
+  border: 2px solid #cc3399;
+  border-radius: 10px;
+}
