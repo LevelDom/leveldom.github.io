@@ -1,54 +1,114 @@
-/* Background and body setup */
-body {
-  background: url('https://www.transparenttextures.com/patterns/stardust.png');
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* Body = fullscreen retro desktop background */
+body, html {
   margin: 0;
-  padding: 20px;
-  color: #333;
+  padding: 0;
+  height: 100%;
+  font-family: 'Comic Sans MS', cursive;
 }
 
-/* Simulated window frame */
+.desktop {
+  background: linear-gradient(to bottom right, #ffeaff, #d9e1ff);
+  background-image:
+    url('https://www.transparenttextures.com/patterns/stardust.png'),
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.05) 0, transparent 25px),
+    repeating-linear-gradient(-45deg, rgba(255,255,255,0.05) 0, transparent 25px);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Mute button styled like a tray icon */
+.mute-button {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  background: linear-gradient(to bottom, #e0e0e0, #c0c0c0);
+  border: 1px solid #666;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+  font-family: 'Press Start 2P', cursive;
+  z-index: 100;
+}
+
+/* Clock in top-right */
+.clock {
+  position: fixed;
+  top: 8px;
+  right: 14px;
+  background: rgba(255, 255, 255, 0.6);
+  font-family: 'Press Start 2P', cursive;
+  font-size: 12px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  border: 1px solid #999;
+  color: #333;
+  z-index: 100;
+}
+
+/* Fake Window */
 .window {
-  width: 800px;
-  margin: 0 auto;
-  border: 1px solid #aaa;
-  box-shadow: 4px 4px 10px rgba(0,0,0,0.2);
-  background: #eaf4ff;
+  width: 90%;
+  height: 90%;
+  border: 2px solid #6a9dd3;
+  background: #ffffff;
+  box-shadow: 8px 8px 0px #888;
+  display: flex;
+  flex-direction: column;
   border-radius: 6px;
   overflow: hidden;
 }
 
-/* Title bar (Windows 7 style) */
+/* Title Bar */
 .title-bar {
   background: linear-gradient(to bottom, #d0eaff, #a8cfff);
-  padding: 5px 10px;
+  color: #003366;
+  font-weight: bold;
+  padding: 8px 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #003366;
-  font-weight: bold;
-  border-bottom: 1px solid #6aa2d3;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 12px;
 }
 
 .window-controls button {
+  background: #e0e0e0;
+  border: 1px solid #888;
   margin-left: 4px;
-  background: linear-gradient(to bottom, #f0f0f0, #d0d0d0);
-  border: 1px solid #999;
-  border-radius: 3px;
+  padding: 2px 6px;
+  font-size: 12px;
   cursor: pointer;
+  border-radius: 3px;
+  transition: all 0.2s ease;
 }
 
-/* Content area */
+.window-controls button:hover {
+  background: #ffcccc;
+  border-color: #cc0000;
+  color: #660000;
+}
+
+/* Content Area */
 .content {
+  flex: 1;
   display: flex;
+  overflow: hidden;
 }
 
 /* Sidebar */
 .sidebar {
   width: 180px;
-  background: #fff;
-  border-right: 1px solid #ccc;
+  background: #f6f6ff;
+  border-right: 1px dashed #aaa;
   padding: 10px;
+  font-size: 14px;
 }
 
 .sidebar ul {
@@ -57,29 +117,69 @@ body {
 }
 
 .sidebar li {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .sidebar a {
+  color: #0000cc;
   text-decoration: none;
-  color: #0077cc;
   font-weight: bold;
+  padding: 4px 6px;
+  display: block;
+  border-radius: 4px;
+  transition: background 0.2s, transform 0.1s;
 }
 
-/* Main content */
+.sidebar a:hover {
+  background: #d0ebff;
+  transform: translateX(4px);
+}
+
+/* Main Content */
 .main {
   flex: 1;
   padding: 20px;
+  overflow-y: auto;
+  font-size: 14px;
+  background: repeating-linear-gradient(
+    45deg,
+    #fff,
+    #fff 10px,
+    #f0f8ff 10px,
+    #f0f8ff 20px
+  );
 }
 
 .main h1 {
-  font-size: 24px;
+  font-size: 20px;
   color: #cc3399;
-  text-shadow: 1px 1px 0 #fff;
+  text-shadow: 1px 1px #fff;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.main p {
+  margin: 10px 0;
 }
 
 .gif {
-  margin-top: 10px;
-  border: 2px solid #cc3399;
-  border-radius: 10px;
+  margin-top: 15px;
+  border: 3px double #cc3399;
+  border-radius: 6px;
+  max-width: 100px;
 }
+
+/* Retro blink */
+blink {
+  animation: blink-animation 1s steps(2, start) infinite;
+}
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+
+/* Marquee */
+marquee {
+  font-family: 'Press Start 2P', cursive;
+  color: #663399;
+ 
