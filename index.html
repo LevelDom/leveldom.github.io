@@ -3,25 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <title>~☆ My Anime Desktop ☆~</title>
+  <!-- 🌈 Link to external stylesheet -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="desktop">
 
     <!-- 🎵 Background Music -->
-    <!-- 🎵 Replace the URL below with your own MP3 or MIDI -->
     <audio id="bg-music" autoplay loop>
       <source src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Komiku/Its_time_for_adventure/Komiku_-_11_-_Princess_quest.mp3" type="audio/mp3" />
     </audio>
 
-    <!-- 🔊 Mute Button (bottom-left like system tray) -->
+    <!-- 🔇 Mute Button -->
     <button class="mute-button" onclick="toggleMusic()">🔊</button>
 
-    <!-- 🕒 Clock -->
+    <!-- ⏰ Clock Display -->
     <div id="clock" class="clock"></div>
 
-    <!-- 💻 Main Window -->
+    <!-- 💻 Main Window Container -->
     <div class="window">
+      <!-- 🧭 Title Bar -->
       <div class="title-bar">
         <span class="title">~☆ My Anime Page ☆~</span>
         <div class="window-controls">
@@ -31,16 +32,19 @@
         </div>
       </div>
 
+      <!-- 📁 Window Content -->
       <div class="content">
+        <!-- 🔗 Sidebar Navigation -->
         <div class="sidebar">
           <ul>
-            <li><a href="#">🏠 Home</a></li>
-            <li><a href="#">🌸 Gallery</a></li>
-            <li><a href="#">💬 Guestbook</a></li>
-            <li><a href="#">🧚 About Me</a></li>
+            <li><a href="index.html">🏠 Home</a></li>
+            <li><a href="gallery.html">🌸 Gallery</a></li>
+            <li><a href="guestbook.html">💬 Guestbook</a></li>
+            <li><a href="about.html">🧚 About Me</a></li>
           </ul>
         </div>
 
+        <!-- 📜 Main Content -->
         <div class="main">
           <marquee behavior="scroll" direction="left" scrollamount="5">✨ Welcome to my sparkly retro anime site! ✨</marquee>
           <h1>Hi! I'm Usagi~</h1>
@@ -52,7 +56,7 @@
     </div>
   </div>
 
-  <!-- 🔊 Music Toggle + 🕒 Clock Script -->
+  <!-- 🔊 Music and ⏰ Clock Scripts -->
   <script>
     const music = document.getElementById("bg-music");
     const muteBtn = document.querySelector(".mute-button");
@@ -67,14 +71,14 @@
       }
     }
 
-    // ⏰ Digital Clock
     function updateClock() {
       const now = new Date();
       const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
       document.getElementById("clock").textContent = timeString;
     }
+
     setInterval(updateClock, 1000);
-    updateClock(); // run once immediately
+    updateClock(); // Initialize once on page load
   </script>
 </body>
 </html>
