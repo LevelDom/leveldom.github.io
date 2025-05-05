@@ -183,3 +183,21 @@ marquee {
   font-family: 'Press Start 2P', cursive;
   color: #663399;
  
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.gallery img.thumb {
+  width: 150px;
+  height: auto;
+  border: 2px solid #ffb6c1;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.gallery img.thumb:hover {
+  transform: scale(1.1);
+}
